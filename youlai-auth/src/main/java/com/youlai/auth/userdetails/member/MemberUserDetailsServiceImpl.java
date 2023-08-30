@@ -10,6 +10,7 @@ import com.youlai.common.result.Result;
 import com.youlai.common.result.ResultCode;
 import com.youlai.mall.ums.api.MemberFeignClient;
 import com.youlai.mall.ums.dto.MemberAuthDTO;
+import com.youlai.mall.ums.dto.MemberInfoDTO;
 import com.youlai.mall.ums.dto.MemberRegisterDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -21,6 +22,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 
 /**
  * 商城会员用户认证服务
@@ -94,6 +104,8 @@ public class MemberUserDetailsServiceImpl implements UserDetailsService {
         }
         return userDetails;
     }
+
+
 
     /**
      * 获取会员信息
